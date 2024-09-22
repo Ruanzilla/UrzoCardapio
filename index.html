@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio do Urzo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Urzo Arena e Pub</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#pratos">Pratos</a></li>
+                <li><a href="#sobremesas">Sobremesas</a></li>
+                <li><a href="#bebidas">Bebidas</a></li>
+                <li><a href="#hamburger">Hamburguer</a></li>
+            </ul>
+        </nav>
+        <div id="cart" style="display:none;">
+            <h2>Seu Carrinho</h2>
+            <ul id="cart-items"></ul>
+            <p id="total">Total: R$0.00</p>
+            <button onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h2>Bem-vindo ao Urzo Arena e Pub!</h2>
+            <p>Descubra nosso cardápio delicioso.</p>
+        </section>
+
+        <section id="pratos">
+            <h2>Pratos</h2>
+            <div class="item">
+                <h3>Amendoim Temperado - 200g</h3>
+                <p>Sabores: Cebola e salsa; churrasco; pimenta vermelha.</p>
+                <button onclick="addToCart('Amendoim Temperado - 200g', 8.00)">Adicionar ao Carrinho - R$8.00</button>
+            </div>
+            <div class="item">
+                <h3>Batata Queijo e Bacon - 400g</h3>
+                <p>Batata palito com creme de queijo e bacon crocante.</p>
+                <button onclick="addToCart('Batata Queijo e Bacon - 400g', 26.00)">Adicionar ao Carrinho - R$26,00</button>
+            </div>
+            <div class="item">
+                <h3>Batata Rústica - 400g</h3>
+                <p>Batata rústica, acompanha maionese verde e molho barbecue.</p>
+                <button onclick="addToCart('Batata Rústica - 400g', 24.00)">Adicionar ao Carrinho - R$24.00</button>
+            </div>
+            <div class="item">
+                <h3>Batata Simples - 400g</h3>
+                <p>Batata palito com acompanhamento de maionese verde.</p>
+                <button onclick="addToCart('Batata Simples - 400g', 20.00)">Adicionar ao Carrinho - R$20,00</button>
+            </div>
+            <div class="item">
+                <h3>Croqueta de Aipim - 6un</h3>
+                <p>Bolinho de aipim cremoso temperado com alho e cheiro-verde.</p>
+                <button onclick="addToCart('Croqueta de Aipim - 6un', 30.00)">Adicionar ao Carrinho - R$30,00</button>
+            </div>
+            <div class="item">
+                <h3>Dadinho de Tapioca com Linguiça - 340g</h3>
+                <p>Dadinho tradicional de tapioca com crocante de linguiça.</p>
+                <button onclick="addToCart('Dadinho de Tapioca com Linguiça - 340g', 24.00)">Adicionar ao Carrinho - R$24,00</button>
+            </div>
+            <div class="item">
+                <h3>Isca de Tilápia Crocante - 400g</h3>
+                <p>Tilápia empanada. Acompanha maionese verde.</p>
+                <button onclick="addToCart('Isca de Tilápia Crocante - 400g', 40.00)">Adicionar ao Carrinho - R$40,00</button>
+            </div>
+            <div class="item">
+                <h3>Iscas de Alcatra Flambada - 400g</h3>
+                <p>Iscas de alcatra salteadas e flambadas com whisky. Acompanha maionese verde.</p>
+                <button onclick="addToCart('Iscas de Alcatra Flambada - 400g', 47.00)">Adicionar ao Carrinho - R$47,00</button>
+            </div>
+            <div class="item">
+                <h3>Mel Coração</h3>
+                <p>Coração grelhado e queijo coalho crocante. Acompanha maionese verde.</p>
+                <button onclick="addToCart('Mel Coração', 40.00)">Adicionar ao Carrinho - R$40,00</button>
+            </div>
+            <div class="item">
+                <h3>Panceta</h3>
+                <p>Panceta suína cozida por 6 horas em banha de porco.</p>
+                <button onclick="addToCart('Panceta', 25.00)">Adicionar ao Carrinho - R$25,00</button>
+            </div>
+            <div class="item">
+                <h3>Pastel de Costela - 6un</h3>
+                <p>Pastel de costela marinada no vinho tinto, ervas finas e cebola caramelizada.</p>
+                <button onclick="addToCart('Pastel de Costela - 6un', 40.00)">Adicionar ao Carrinho - R$40,00</button>
+            </div>
+            <div class="item">
+                <h3>Tábua de Frios</h3>
+                <p>Azeitonas, ovo de codorna, queijo colonial, brie, presunto cru e salame.</p>
+                <button onclick="addToCart('Tábua de Frios', 35.00)">Adicionar ao Carrinho - R$35,00</button>
+            </div>
+        </section>
+
+        <section id="sobremesas">
+            <h2>Sobremesas</h2>
+            <div class="item">
+                <h3>Ursula</h3>
+                <p>Chantilly artesanal, caramelo salgado, bolacha embebida em café.</p>
+                <button onclick="addToCart('Ursula', 38.00)">Adicionar ao Carrinho - R$38,00</button>
+            </div>
+        </section>
+
+        <section id="bebidas">
+            <h2>Bebidas</h2>
+            <div class="item">
+                <h3>Água com Gás</h3>
+                <button onclick="addToCart('Água com Gás', 3.00)">Adicionar ao Carrinho - R$3,00</button>
+            </div>
+            <div class="item">
+                <h3>Água sem Gás</h3>
+                <button onclick="addToCart('Água sem Gás', 3.00)">Adicionar ao Carrinho - R$3,00</button>
+            </div>
+            <div class="item">
+                <h3>Água Tônica</h3>
+                <button onclick="addToCart('Água Tônica', 9.00)">Adicionar ao Carrinho - R$9,00</button>
+            </div>
+            <div class="item">
+                <h3>Água Tônica Clássica Wewí</h3>
+                <button onclick="addToCart('Água Tônica Clássica Wewí', 10.00)">Adicionar ao Carrinho - R$10,00</button>
+            </div>
+            <div class="item">
+                <h3>Água Tônica Ginger Wewí</h3>
+                <button onclick="addToCart('Água Tônica Ginger Wewí', 10.00)">Adicionar ao Carrinho - R$10,00</button>
+            </div>
+            <div class="item">
+                <h3>Água Tônica Rose Wewí</h3>
+                <button onclick="addToCart('Água Tônica Rose Wewí', 10.00)">Adicionar ao Carrinho - R$10,00</button>
+            </div>
+            <div class="item">
+                <h3>Chopp Amstel - 300ml</h3>
+                <button onclick="addToCart('Chopp Amstel - 300ml', 10.00)">Adicionar ao Carrinho - R$10,00</button>
+            </div>
+            <div class="item">
+                <h3>Chopp Amstel - 500ml</h3>
+                <button onclick="addToCart('Chopp Amstel - 500ml', 15.00)">Adicionar ao Carrinho - R$15,00</button>
+            </div>
+            <div class="item">
+                <h3>Chopp Amstel - 1L</h3>
+                <button onclick="addToCart('Chopp Amstel - 1L', 30.00)">Adicionar ao Carrinho - R$30,00</button>
+            </div>
+            <div class="item">
+                <h3>Chopp Amstel - 1,5L</h3>
+                <button onclick="addToCart('Chopp Amstel - 1,5L', 45.00)">Adicionar ao Carrinho - R$45,00</button>
+            </div>
+            <div class="item">
+                <h3>Chopp Budweiser - 300ml</h3>
+                <button onclick="addToCart('Chopp Budweiser - 300ml', 12.00)">Adicionar ao Carrinho - R$12,00</button>
+            </div>
+            <div class="item">
+                <h3>Chopp Budweiser - 500ml</h3>
+                <button onclick="addToCart('Chopp Budweiser - 500ml', 18.00)">Adicionar ao Carrinho - R$18,00</button>
+            </div>
+            <div class="item">
+                <h3>Chopp Budweiser - 1L</h3>
+                <button onclick="addToCart('Chopp Budweiser - 1L', 35.00)">Adicionar ao Carrinho - R$35,00</button>
+            </div>
+            <div class="item">
+                <h3>Chopp Budweiser - 1,5L</h3>
+                <button onclick="addToCart('Chopp Budweiser - 1,5L', 50.00)">Adicionar ao Carrinho - R$50,00</button>
+            </div>
+        </section>
+
+        <section id="hamburger">
+            <h2>Hamburguer</h2>
+            <div class="item">
+                <h3>Hamburguer Zé Buscapé</h3>
+                <p>Hamburger com carne, molho de queijo cheddar, maionese verde e molho barbecue. Acompanhado de um copinho de maionese verde</p>
+                <button onclick="addToCart('Hamburguer Simples', 28.00)">Adicionar ao Carrinho - R$28,00</button>
+            </div>
+            <div class="item">
+                <h3>Hamburguer Zé Colmeia</h3>
+                <p>Hamburger com carne, cebola, maionese verde, molho barbecue e molho de queijo. Acompanhado de um copinho de maionese verde.</p>
+                <button onclick="addToCart('Hamburguer Especial', 32.00)">Adicionar ao Carrinho - R$32,00</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Urzo Arena e Pub. Todos os direitos reservados. Criado por Ruan Alievi Rocha (Desenvolvedor de sites, etc)</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
